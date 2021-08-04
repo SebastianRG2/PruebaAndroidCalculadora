@@ -1,0 +1,37 @@
+buildscript {
+    ext{
+        SerenityCoreVersion = "2.0.17"
+    }
+    dependencies {
+        classpath("net.serenity-bdd:serenity-gradle-plugin:${SerenityCoreVersion}")
+    }
+}
+
+plugins {
+    id 'java'
+}
+apply plugin: 'net.serenity-bdd.aggregator'
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext{
+    SerenityCoreVersion = "2.0.17"
+}
+
+dependencies {
+    testImplementation "junit:junit:4.12"
+    implementation "net.serenity-bdd:serenity-core:${SerenityCoreVersion}"
+    implementation "net.serenity-bdd:serenity-cucumber:1.9.45"
+    implementation "net.serenity-bdd:serenity-screenplay:${SerenityCoreVersion}"
+    implementation "net.serenity-bdd:serenity-screenplay-webdriver:${SerenityCoreVersion}"
+    implementation "org.seleniumhq.selenium:selenium-server:3.14.0"
+    implementation "net.serenity-bdd:serenity-screenplay-rest:2.0.66"
+    implementation "net.serenity-bdd:serenity-rest-assured:${SerenityCoreVersion}"
+    compileOnly 'org.projectlombok:lombok:1.18.20'
+    annotationProcessor 'org.projectlombok:lombok:1.18.20'
+    implementation('org.slf4j:slf4j-simple:1.7.25')
+}
